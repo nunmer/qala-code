@@ -7,7 +7,7 @@ export default function NotFound() {
   const { t } = useTranslation();
 
   return (
-    <main className="mx-auto flex max-w-xl flex-col items-center px-4 py-24 text-center">
+    <main className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center px-4 py-20 text-center sm:py-24">
       <h1 className="text-3xl font-bold text-steppe-100">{t('common.notFound')}</h1>
       <p className="mt-3 text-sm text-steppe-400">{t('common.notFoundNote')}</p>
       <div className="mt-8 flex gap-3">

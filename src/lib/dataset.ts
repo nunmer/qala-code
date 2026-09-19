@@ -23,7 +23,7 @@ export function useDataset(): readonly Street[] {
   return streets;
 }
 
-/** Только опубликованные записи — то, что видят пользователь и AI-гид (§26). */
+/** Только опубликованные записи - то, что видят пользователь и AI-гид (§26). */
 export function publishedOnly(streets: readonly Street[]): readonly Street[] {
   return streets.filter((street) => street.status === 'published');
 }

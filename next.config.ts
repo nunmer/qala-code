@@ -5,7 +5,7 @@ import type { NextConfig } from 'next';
  * и может быть выложено на любой статический хостинг
  * (GitHub Pages, Vercel, Netlify, обычный nginx).
  *
- * Бэкенда нет — вся выборка, поиск и retrieval выполняются в браузере
+ * Бэкенда нет - вся выборка, поиск и retrieval выполняются в браузере
  * поверх встроенного датасета QALA CODE.
  */
 const nextConfig: NextConfig = {

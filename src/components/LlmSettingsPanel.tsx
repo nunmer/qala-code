@@ -11,7 +11,7 @@ import { clearLlmSettings, saveLlmSettings } from '@/lib/storage';
  * Приложение статическое: серверного прокси нет, поэтому ключ хранится
  * только в localStorage браузера и уходит напрямую в API провайдера.
  * Для локальной работы и защиты проекта этого достаточно; для публичного
- * развёртывания вызов нужно вынести на сервер — предупреждение показано явно.
+ * развёртывания вызов нужно вынести на сервер - предупреждение показано явно.
  */
 export function LlmSettingsPanel({
   settings,
@@ -80,7 +80,7 @@ export function LlmSettingsPanel({
               type="password"
               value={apiKey}
               onChange={(event) => setApiKey(event.target.value)}
-              placeholder={settings ? '••••••••' : 'sk-…'}
+              placeholder={settings ? '••••••••' : 'sk-...'}
               autoComplete="off"
               className={inputClass}
             />

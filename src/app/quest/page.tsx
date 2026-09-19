@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@/components/Icons';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { QrCode } from '@/components/QrCode';
@@ -11,7 +12,7 @@ import { findBySlug } from '@/lib/search';
 import { questUrl } from '@/lib/site';
 import { loadQuestProgress, resetQuestProgress } from '@/lib/storage';
 
-/** QR-квест «Прогулка по истории Астаны» (§18–19 README). */
+/** QR-квест «Прогулка по истории Астаны» (§18-19 README). */
 export default function QuestPage() {
   const { t, lang } = useTranslation();
   const [completed, setCompleted] = useState<readonly number[]>([]);
@@ -32,7 +33,7 @@ export default function QuestPage() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:py-10">
       <h1 className="text-2xl font-bold text-steppe-100">{t('quest.title')}</h1>
       <p className="mt-2 text-sm leading-relaxed text-steppe-400">{t('quest.intro')}</p>
 
@@ -100,11 +101,11 @@ export default function QuestPage() {
                     isDone ? 'bg-emerald-500 text-steppe-950' : 'bg-steppe-800 text-steppe-300'
                   }`}
                 >
-                  {isDone ? '✓' : step.order}
+                  {isDone ? <CheckIcon /> : step.order}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm font-medium text-steppe-100">
-                    QR №{step.order} —{' '}
+                    QR №{step.order} -{' '}
                     {street ? getStreetTitle(street, lang) : step.street_slug}
                   </span>
                   <span className="mt-0.5 block truncate text-xs text-steppe-400">

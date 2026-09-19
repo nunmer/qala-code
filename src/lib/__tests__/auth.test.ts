@@ -16,7 +16,7 @@ function stubSessionStorage() {
   return store;
 }
 
-/** Хранилище, которое всегда бросает исключение — приватный режим браузера. */
+/** Хранилище, которое всегда бросает исключение - приватный режим браузера. */
 function stubBrokenStorage() {
   vi.stubGlobal('window', {
     sessionStorage: {
@@ -37,7 +37,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
-describe('checkCredentials — демонстрационный вход', () => {
+describe('checkCredentials - демонстрационный вход', () => {
   it('принимает пару admin/admin', () => {
     expect(checkCredentials('admin', 'admin')).toBe(true);
   });
@@ -52,7 +52,7 @@ describe('checkCredentials — демонстрационный вход', () =>
     expect(checkCredentials('', '')).toBe(false);
   });
 
-  it('не подрезает пробелы в пароле — пароль сравнивается как есть', () => {
+  it('не подрезает пробелы в пароле - пароль сравнивается как есть', () => {
     expect(checkCredentials('admin', ' admin ')).toBe(false);
   });
 });
@@ -88,7 +88,7 @@ describe('сессия редактора', () => {
   });
 });
 
-describe('location — координаты из ссылки 2ГИС', () => {
+describe('location - координаты из ссылки 2ГИС', () => {
   it('возвращает точку для каждой записи базы', () => {
     for (const street of STREETS) {
       expect(streetLocation(street), street.slug).not.toBeNull();

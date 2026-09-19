@@ -7,7 +7,7 @@ import { normalizeForSearch, stemMatch, tokenize } from './normalize';
 import { scoreMatch } from './search';
 
 /**
- * Retrieval — шаг «поиск по базе QALA CODE» из архитектуры §12–13 README.
+ * Retrieval - шаг «поиск по базе QALA CODE» из архитектуры §12-13 README.
  *
  * Работает полностью в браузере поверх встроенного датасета.
  * LLM получает ТОЛЬКО то, что вернёт эта функция: она определяет границы
@@ -32,7 +32,7 @@ const MAX_RESULTS = 6;
 
 /**
  * Минимальная длина токена для поиска по тексту карточки.
- * Имена сопоставляются и по более коротким токенам — там совпадение
+ * Имена сопоставляются и по более коротким токенам - там совпадение
  * проверяется целиком, а не подстрокой.
  */
 const MIN_BODY_TOKEN = 4;
@@ -41,7 +41,7 @@ const MIN_BODY_TOKEN = 4;
  * Слова вопроса, указывающие на подкатегорию записи.
  *
  * Это отдельный от категорий слой: улица в честь писателя относится
- * к категории «Личности» (названа в честь человека), а «писатели» —
+ * к категории «Личности» (названа в честь человека), а «писатели» -
  * её подкатегория. Без этого различия вопрос «улицы в честь писателей»
  * уводил бы в категорию «Литература и искусство», где лежат эпос и музыка.
  *
@@ -69,7 +69,7 @@ const LIST_INTENT =
 /**
  * Слова, которые встречаются почти в каждой записи базы и потому ничего
  * не различают: «улица», «название», «Казахстан», вопросительные слова.
- * Без их отсева вопрос «улицы, названные в честь…» совпадал бы с любой
+ * Без их отсева вопрос «улицы, названные в честь...» совпадал бы с любой
  * карточкой, где есть слово «название».
  *
  * Хранятся как основы: сравнение идёт по общему префиксу.
@@ -98,7 +98,7 @@ function isStopword(token: string): boolean {
   return STOPWORD_STEMS.some((stem) => stemMatch(token, stem, Math.min(4, stem.length)));
 }
 
-/** Слова вопроса как есть — без транслитерации, для сопоставления с ключевыми словами. */
+/** Слова вопроса как есть - без транслитерации, для сопоставления с ключевыми словами. */
 function words(lowered: string): readonly string[] {
   return lowered.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
 }
@@ -177,7 +177,7 @@ function contentScore(street: Street, tokens: readonly string[], lang: Lang): nu
     if (nameKeys.some((key) => key.startsWith(token))) return score + 16;
     if (nameKey.includes(token)) return score + 8;
 
-    // Короткое слово внутри длинного текста — совпадение случайное:
+    // Короткое слово внутри длинного текста - совпадение случайное:
     // «are» находится в «area», «share», «Sarayshyq». По телу карточки
     // ищем только достаточно длинные токены.
     if (token.length >= MIN_BODY_TOKEN && bodyKey.includes(token)) return score + 3;
@@ -188,7 +188,7 @@ function contentScore(street: Street, tokens: readonly string[], lang: Lang): nu
 /**
  * Основная функция retrieval: возвращает релевантные записи базы.
  *
- * Ищет только среди опубликованных записей (§26) — черновики не должны
+ * Ищет только среди опубликованных записей (§26) - черновики не должны
  * попадать ни к пользователю, ни в контекст модели.
  */
 export function retrieve(
@@ -202,7 +202,7 @@ export function retrieve(
 
   const scored = published
     .map((street) => {
-      // Подкатегория — самый точный сигнал: она отвечает на вопрос
+      // Подкатегория - самый точный сигнал: она отвечает на вопрос
       // «кем был человек», а не только «человек это или место».
       const bySubcategory = matchesSubcategory(street, intent.subcategories) ? 30 : 0;
       const byCategory = intent.categories.includes(street.category) ? 8 : 0;
@@ -216,7 +216,7 @@ export function retrieve(
       (a, b) => b.score - a.score || a.street.name_ru.localeCompare(b.street.name_ru, 'ru'),
     );
 
-  // Запрос вида «улицы, связанные с природой» не содержит имён —
+  // Запрос вида «улицы, связанные с природой» не содержит имён -
   // тогда категория сама по себе является достаточным критерием.
   if (scored.length === 0 && intent.categories.length > 0) {
     return {
@@ -236,7 +236,7 @@ export function retrieve(
 
 /**
  * Собирает контекст для LLM из найденных записей.
- * Модель не получает ничего, кроме этого текста, — это и есть
+ * Модель не получает ничего, кроме этого текста, - это и есть
  * ограничение «отвечать только на основании базы» (§14).
  */
 export function buildContext(streets: readonly Street[], lang: Lang = DEFAULT_LANG): string {
@@ -251,9 +251,9 @@ export function buildContext(streets: readonly Street[], lang: Lang = DEFAULT_LA
 
       const lines = [
         `[Запись ${index + 1}]`,
-        `Название: ${text.kind} ${street.name_ru} (каз. ${street.name_kz}; англ. ${street.name_en ?? '—'})`,
+        `Название: ${text.kind} ${street.name_ru} (каз. ${street.name_kz}; англ. ${street.name_en ?? '-'})`,
         `slug: ${street.slug}`,
-        `Категория: ${street.category}; подкатегории: ${subcategories || '—'}`,
+        `Категория: ${street.category}; подкатегории: ${subcategories || '-'}`,
         `Кто/что это: ${text.who_is_it}`,
         `Почему так названа: ${text.why_named}`,
         `Историческая справка:\n${text.historical_facts.map((f) => `- ${f}`).join('\n')}`,

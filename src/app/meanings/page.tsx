@@ -27,7 +27,7 @@ export default function MeaningsPage() {
   ].join('\n');
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:py-10">
       <h1 className="text-2xl font-bold text-steppe-100">{t('meanings.title')}</h1>
       <p className="mt-2 text-sm leading-relaxed text-steppe-400">{t('meanings.intro')}</p>
 
@@ -39,8 +39,12 @@ export default function MeaningsPage() {
         {stats.categories.map(({ category, count, share }) => (
           <div key={category.id}>
             <div className="mb-1.5 flex items-baseline justify-between gap-3">
-              <span className="text-sm font-medium text-steppe-100">
-                {category.emoji} {category.label[lang]}
+              <span className="flex items-center gap-2 text-sm font-medium text-steppe-100">
+                <span
+                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: category.color }}
+                />
+                {category.label[lang]}
               </span>
               <span className="text-sm tabular-nums text-steppe-400">
                 {count} · {formatShare(share)}

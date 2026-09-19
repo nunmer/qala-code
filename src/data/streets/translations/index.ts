@@ -7,7 +7,7 @@ import { STREET_TEXT_EN } from './en';
 /**
  * Наложения переводов карточек улиц.
  *
- * Русский лежит в самой записи (`street.text`) — это язык-источник.
+ * Русский лежит в самой записи (`street.text`) - это язык-источник.
  * Остальные языки хранятся отдельно, чтобы файлы датасета оставались
  * читаемыми и чтобы было видно, что именно уже переведено.
  */
@@ -17,13 +17,13 @@ const OVERLAYS: Readonly<Record<Lang, Readonly<Record<string, StreetText>>>> = {
   en: STREET_TEXT_EN,
 };
 
-/** Текст карточки на выбранном языке; при отсутствии перевода — русский оригинал. */
+/** Текст карточки на выбранном языке; при отсутствии перевода - русский оригинал. */
 export function getStreetText(street: Street, lang: Lang): StreetText {
   if (lang === 'ru') return street.text;
   return OVERLAYS[lang][street.slug] ?? street.text;
 }
 
-/** Есть ли перевод карточки на этот язык — интерфейс честно помечает подстановку. */
+/** Есть ли перевод карточки на этот язык - интерфейс честно помечает подстановку. */
 export function hasTranslation(street: Street, lang: Lang): boolean {
   if (lang === 'ru') return true;
   return Boolean(OVERLAYS[lang][street.slug]);
@@ -36,7 +36,7 @@ export function getStreetName(street: Street, lang: Lang): string {
   return street.name_ru;
 }
 
-/** Второстепенное название — показывается под основным. */
+/** Второстепенное название - показывается под основным. */
 export function getSecondaryName(street: Street, lang: Lang): string {
   if (lang === 'kk') return street.name_ru;
   if (lang === 'en') return street.name_kz;
@@ -47,7 +47,7 @@ export function getSecondaryName(street: Street, lang: Lang): string {
  * Полный заголовок: «проспект Абая», «Абай даңғылы», «Abay Avenue».
  *
  * Часть названий уже содержит родовое слово («Коргалжынское шоссе»,
- * «Қорғалжын тас жолы») — тогда второй раз его подставлять не нужно.
+ * «Қорғалжын тас жолы») - тогда второй раз его подставлять не нужно.
  */
 export function getStreetTitle(street: Street, lang: Lang): string {
   const name = getStreetName(street, lang);

@@ -26,7 +26,7 @@ export interface Source {
 /**
  * Переводимая часть карточки.
  *
- * Русский — язык-источник: он заполняется при исследовании и всегда присутствует.
+ * Русский - язык-источник: он заполняется при исследовании и всегда присутствует.
  * Казахский и английский хранятся отдельными наложениями и при отсутствии
  * подставляются из русского, а интерфейс честно помечает это.
  */
@@ -55,7 +55,7 @@ export interface Street {
   readonly alt_names: readonly string[];
 
   /**
-   * Расположение задаётся ссылкой 2ГИС — это единственный источник координат.
+   * Расположение задаётся ссылкой 2ГИС - это единственный источник координат.
    * Отдельных полей latitude/longitude нет: их легко разойтись с реальностью,
    * а ссылку всегда можно открыть и проверить.
    */
@@ -64,20 +64,19 @@ export interface Street {
   readonly status: RecordStatus;
   readonly sources: readonly Source[];
 
-  /** Русский текст карточки — язык-источник. */
+  /** Русский текст карточки - язык-источник. */
   readonly text: StreetText;
 }
 
 export interface Category {
   readonly id: CategoryId;
   readonly label: Readonly<Record<Lang, string>>;
-  readonly emoji: string;
   /** Цвет маркера и акцентов. Хранится как hex, чтобы работать и в Leaflet, и в CSS. */
   readonly color: string;
   readonly description: Readonly<Record<Lang, string>>;
 }
 
-/** Одна точка образовательного QR-маршрута (§18–19 README). */
+/** Одна точка образовательного QR-маршрута (§18-19 README). */
 export interface QuestStep {
   readonly order: number;
   readonly street_slug: string;

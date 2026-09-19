@@ -5,7 +5,7 @@ import QRCode from 'qrcode';
 
 /**
  * QR-код для страницы улицы или точки квеста (§17 README).
- * Генерируется в браузере — внешние сервисы не задействованы,
+ * Генерируется в браузере - внешние сервисы не задействованы,
  * поэтому ссылки не утекают на сторонние домены.
  */
 export function QrCode({
@@ -57,7 +57,7 @@ export function QrCode({
           <img src={dataUrl} alt={`QR-код: ${value}`} width={size} height={size} />
         ) : (
           <span className="px-2 text-center text-[10px] leading-tight text-steppe-900">
-            {error ?? 'Генерация…'}
+            {error ?? 'Генерация...'}
           </span>
         )}
       </div>

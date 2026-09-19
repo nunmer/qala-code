@@ -6,7 +6,7 @@ import { parseTwoGisLocation } from './twogis';
  * Агрегаты для «Карты смыслов» (§10 README).
  *
  * Все доли считаются от размера исследованной выборки, а не от
- * общего числа улиц Астаны — интерфейс обязан это подписывать.
+ * общего числа улиц Астаны - интерфейс обязан это подписывать.
  */
 export function buildStatistics(streets: readonly Street[]): Statistics {
   const total = streets.length;
@@ -35,7 +35,7 @@ export function buildStatistics(streets: readonly Street[]): Statistics {
   };
 }
 
-/** Текстовая гистограмма в стиле §10 README — используется в «Карте смыслов». */
+/** Текстовая гистограмма в стиле §10 README - используется в «Карте смыслов». */
 export function barFor(share: number, width = 20): string {
   const filled = Math.round(share * width);
   return '█'.repeat(filled).padEnd(width, '░');
@@ -45,7 +45,7 @@ export function formatShare(share: number): string {
   return `${(share * 100).toFixed(1)}%`;
 }
 
-/** Машинные коды проблем — интерфейс переводит их на язык пользователя. */
+/** Машинные коды проблем - интерфейс переводит их на язык пользователя. */
 export type QualityIssue =
   | 'name'
   | 'description'

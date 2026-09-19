@@ -24,7 +24,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (isLang(stored)) setLangState(stored);
     } catch {
-      // Недоступное хранилище не должно ломать страницу — остаёмся на русском.
+      // Недоступное хранилище не должно ломать страницу - остаёмся на русском.
     }
   }, []);
 

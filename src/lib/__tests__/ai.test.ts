@@ -30,7 +30,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-describe('ask — цикл AI-гида (§12)', () => {
+describe('ask - цикл AI-гида (§12)', () => {
   it('без ключа отвечает из базы и не обращается к сети', async () => {
     const spy = mockFetch({});
     const result = await ask(STREETS, 'Кто такой Абай?', null);
@@ -46,7 +46,7 @@ describe('ask — цикл AI-гида (§12)', () => {
     expect(result.mode).toBe('retrieval');
   });
 
-  it('при пустой выборке не вызывает модель — ей нечем отвечать (§14)', async () => {
+  it('при пустой выборке не вызывает модель - ей нечем отвечать (§14)', async () => {
     const spy = mockFetch({});
     const result = await ask(STREETS, 'йцукенгшщз', SETTINGS);
 
@@ -154,7 +154,7 @@ describe('buildContext (§13)', () => {
   });
 });
 
-describe('stats — вспомогательные функции (§10, §29)', () => {
+describe('stats - вспомогательные функции (§10, §29)', () => {
   it('barFor строит шкалу фиксированной ширины', () => {
     expect(barFor(0, 10)).toBe('░'.repeat(10));
     expect(barFor(1, 10)).toBe('█'.repeat(10));
@@ -196,7 +196,7 @@ describe('stats — вспомогательные функции (§10, §29)',
   });
 });
 
-describe('site — адреса для QR-кодов (§17)', () => {
+describe('site - адреса для QR-кодов (§17)', () => {
   it('формирует адрес страницы улицы', () => {
     expect(streetUrl('abay')).toBe(`${siteOrigin()}/street/abay/`);
   });
@@ -210,7 +210,7 @@ describe('site — адреса для QR-кодов (§17)', () => {
   });
 });
 
-describe('twogis — вспомогательные функции', () => {
+describe('twogis - вспомогательные функции', () => {
   it('распознаёт домены 2ГИС', () => {
     expect(isTwoGisUrl('https://2gis.kz/astana')).toBe(true);
     expect(isTwoGisUrl('https://2gis.ru/moscow')).toBe(true);
@@ -258,7 +258,7 @@ describe('переводы карточек', () => {
     const { getStreetTitle } = await import('@/data/streets/translations');
     const korgalzhyn = findBySlug(STREETS, 'korgalzhyn')!;
 
-    // name_ru = «Коргалжынское шоссе», kind = «шоссе» — «шоссе» один раз.
+    // name_ru = «Коргалжынское шоссе», kind = «шоссе» - «шоссе» один раз.
     expect(getStreetTitle(korgalzhyn, 'ru')).toBe('Коргалжынское шоссе');
     expect(getStreetTitle(korgalzhyn, 'kk')).toBe('Қорғалжын тас жолы');
     expect(getStreetTitle(korgalzhyn, 'en')).toBe('Korgalzhyn Highway');

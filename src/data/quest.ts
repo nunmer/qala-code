@@ -1,7 +1,7 @@
 import type { QuestStep } from '@/lib/types';
 
 /**
- * QR-квест «Прогулка по истории Астаны» (§18–19 README).
+ * QR-квест «Прогулка по истории Астаны» (§18-19 README).
  *
  * Десять точек, каждая привязана к улице из базы QALA CODE.
  * Все вопросы проверяются по опубликованным записям: правильный ответ
@@ -14,18 +14,18 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     question: {
       ru: 'Как называется главное прозаическое произведение Абая?',
       kk: 'Абайдың басты прозалық шығармасы қалай аталады?',
-      en: 'What is the title of Abay’s principal prose work?',
+      en: 'What is the title of Abay\'s principal prose work?',
     },
     options: {
       ru: ['«Қара сөз» («Слова назидания»)', '«Абай жолы»', '«Тар жол, тайғақ кешу»', '«Көкшетау»'],
       kk: ['«Қара сөз»', '«Абай жолы»', '«Тар жол, тайғақ кешу»', '«Көкшетау»'],
-      en: ['“Qara Sozi” (“Words of Edification”)', '“Abay Zholy”', '“Tar Zhol, Taighaq Keshu”', '“Kokshetau”'],
+      en: ['"Qara Sozi" ("Words of Edification")', '"Abay Zholy"', '"Tar Zhol, Taighaq Keshu"', '"Kokshetau"'],
     },
     answer_index: 0,
     explanation: {
-      ru: '«Қара сөз» — сборник философских размышлений Абая. «Абай жолы» написал Мұхтар Әуезов, «Тар жол, тайғақ кешу» и «Көкшетау» — Сәкен Сейфуллин.',
-      kk: '«Қара сөз» — Абайдың философиялық толғаныстар жинағы. «Абай жолын» Мұхтар Әуезов, «Тар жол, тайғақ кешу» мен «Көкшетауды» Сәкен Сейфуллин жазған.',
-      en: '“Qara Sozi” is Abay’s collection of philosophical reflections. “Abay Zholy” was written by Mukhtar Auezov, while “Tar Zhol, Taighaq Keshu” and “Kokshetau” are by Saken Seyfullin.',
+      ru: '«Қара сөз» - сборник философских размышлений Абая. «Абай жолы» написал Мұхтар Әуезов, «Тар жол, тайғақ кешу» и «Көкшетау» - Сәкен Сейфуллин.',
+      kk: '«Қара сөз» - Абайдың философиялық толғаныстар жинағы. «Абай жолын» Мұхтар Әуезов, «Тар жол, тайғақ кешу» мен «Көкшетауды» Сәкен Сейфуллин жазған.',
+      en: '"Qara Sozi" is Abay\'s collection of philosophical reflections. "Abay Zholy" was written by Mukhtar Auezov, while "Tar Zhol, Taighaq Keshu" and "Kokshetau" are by Saken Seyfullin.',
     },
   },
   {
@@ -43,9 +43,9 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     answer_index: 1,
     explanation: {
-      ru: 'Қабанбай батыр — реальный военачальник XVIII века, поэтому название относится к категории «Личности».',
-      kk: 'Қабанбай батыр — XVIII ғасырдағы нақты қолбасшы, сондықтан атау «Тұлғалар» санатына жатады.',
-      en: 'Qabanbay Batyr was a real eighteenth-century commander, so the name belongs to the “People” category.',
+      ru: 'Қабанбай батыр - реальный военачальник XVIII века, поэтому название относится к категории «Личности».',
+      kk: 'Қабанбай батыр - XVIII ғасырдағы нақты қолбасшы, сондықтан атау «Тұлғалар» санатына жатады.',
+      en: 'Qabanbay Batyr was a real eighteenth-century commander, so the name belongs to the "People" category.',
     },
   },
   {
@@ -78,9 +78,9 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     answer_index: 2,
     explanation: {
-      ru: 'Сарыарқа — историко-географическая область в центре Казахстана, Казахский мелкосопочник. Название переводится как «жёлтый хребет».',
-      kk: 'Сарыарқа — Қазақстанның орталығындағы тарихи-географиялық өлке, Қазақтың ұсақ шоқысы. Атау «сары жон» деп аударылады.',
-      en: 'Saryarqa is a historical and geographical region in central Kazakhstan, the Kazakh Uplands. The name translates as “yellow ridge”.',
+      ru: 'Сарыарқа - историко-географическая область в центре Казахстана, Казахский мелкосопочник. Название переводится как «жёлтый хребет».',
+      kk: 'Сарыарқа - Қазақстанның орталығындағы тарихи-географиялық өлке, Қазақтың ұсақ шоқысы. Атау «сары жон» деп аударылады.',
+      en: 'Saryarqa is a historical and geographical region in central Kazakhstan, the Kazakh Uplands. The name translates as "yellow ridge".',
     },
   },
   {
@@ -93,28 +93,28 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     options: {
       ru: [
-        'Он был последним ханом и возглавил восстание 1837–1847 годов',
+        'Он был последним ханом и возглавил восстание 1837-1847 годов',
         'Он основал Казахское ханство',
         'Он был первым президентом Академии наук',
         'Он записал эпос «Манас»',
       ],
       kk: [
-        'Ол соңғы хан болды және 1837–1847 жылдардағы көтерілісті басқарды',
+        'Ол соңғы хан болды және 1837-1847 жылдардағы көтерілісті басқарды',
         'Ол Қазақ хандығын құрды',
         'Ол Ғылым академиясының тұңғыш президенті болды',
         'Ол «Манас» эпосын жазып алды',
       ],
       en: [
-        'He was the last khan and led the uprising of 1837–1847',
+        'He was the last khan and led the uprising of 1837-1847',
         'He founded the Kazakh Khanate',
         'He was the first president of the Academy of Sciences',
-        'He recorded the epic “Manas”',
+        'He recorded the epic "Manas"',
       ],
     },
     answer_index: 0,
     explanation: {
-      ru: 'Кенесары — внук Абылай хана, избран ханом в 1841 году и возглавил самое длительное национально-освободительное восстание XIX века.',
-      kk: 'Кенесары — Абылай ханның немересі, 1841 жылы хан болып сайланып, XIX ғасырдағы ең ұзақ ұлт-азаттық көтерілісті басқарды.',
+      ru: 'Кенесары - внук Абылай хана, избран ханом в 1841 году и возглавил самое длительное национально-освободительное восстание XIX века.',
+      kk: 'Кенесары - Абылай ханның немересі, 1841 жылы хан болып сайланып, XIX ғасырдағы ең ұзақ ұлт-азаттық көтерілісті басқарды.',
       en: 'Kenesary, a grandson of Abylai Khan, was elected khan in 1841 and led the longest national liberation uprising of the nineteenth century.',
     },
   },
@@ -135,7 +135,7 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     explanation: {
       ru: '16 декабря 1991 года был принят конституционный закон «О государственной независимости Республики Казахстан». Эта же дата связана с событиями «Желтоқсан» 1986 года.',
       kk: '1991 жылдың 16 желтоқсанында «Қазақстан Республикасының мемлекеттік тәуелсіздігі туралы» конституциялық заң қабылданды. Дәл сол күн 1986 жылғы «Желтоқсан» оқиғаларымен де байланысты.',
-      en: 'On 16 December 1991 the constitutional law “On the State Independence of the Republic of Kazakhstan” was adopted. The same date is tied to the “Zheltoqsan” events of 1986.',
+      en: 'On 16 December 1991 the constitutional law "On the State Independence of the Republic of Kazakhstan" was adopted. The same date is tied to the "Zheltoqsan" events of 1986.',
     },
   },
   {
@@ -168,9 +168,9 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     answer_index: 1,
     explanation: {
-      ru: 'Уәлиханов — учёный, этнограф и географ, член Русского географического общества, совершивший экспедицию в Кашгар в 1858–1859 годах.',
-      kk: 'Уәлиханов — ғалым, этнограф және географ, Орыс географиялық қоғамының мүшесі; 1858–1859 жылдары Қашқарға экспедиция жасады.',
-      en: 'Ualikhanov was a scholar, ethnographer and geographer, a member of the Russian Geographical Society, who made an expedition to Kashgar in 1858–1859.',
+      ru: 'Уәлиханов - учёный, этнограф и географ, член Русского географического общества, совершивший экспедицию в Кашгар в 1858-1859 годах.',
+      kk: 'Уәлиханов - ғалым, этнограф және географ, Орыс географиялық қоғамының мүшесі; 1858-1859 жылдары Қашқарға экспедиция жасады.',
+      en: 'Ualikhanov was a scholar, ethnographer and geographer, a member of the Russian Geographical Society, who made an expedition to Kashgar in 1858-1859.',
     },
   },
   {
@@ -190,22 +190,22 @@ export const QUEST_STEPS: readonly QuestStep[] = [
       ],
       kk: [
         'Бұл елдегі ең ірі тау шаңғысы курорты',
-        'Бұл — қызғылт фламингоның әлемдегі ең солтүстік ұя салу орны',
-        'Бұл — мыс өндіру орны',
-        'Бұл — ортағасырлық қаланың қалашығы',
+        'Бұл - қызғылт фламингоның әлемдегі ең солтүстік ұя салу орны',
+        'Бұл - мыс өндіру орны',
+        'Бұл - ортағасырлық қаланың қалашығы',
       ],
       en: [
-        'It is the country’s largest ski resort',
-        'It is the world’s northernmost nesting site of the greater flamingo',
+        'It is the country\'s largest ski resort',
+        'It is the world\'s northernmost nesting site of the greater flamingo',
         'It is a copper mining site',
         'It is the site of a medieval city',
       ],
     },
     answer_index: 1,
     explanation: {
-      ru: 'Озеро Тенгиз в Коргалжынском заповеднике — одно из самых северных мест гнездования розового фламинго. Заповедник входит в объект Всемирного наследия ЮНЕСКО «Сарыарка».',
-      kk: 'Қорғалжын қорығындағы Теңіз көлі — қызғылт фламингоның ең солтүстік ұя салу орындарының бірі. Қорық ЮНЕСКО-ның «Сарыарқа» Дүниежүзілік мұра нысанына кіреді.',
-      en: 'Lake Tengiz in the Korgalzhyn reserve is one of the northernmost nesting sites of the greater flamingo. The reserve is part of the UNESCO World Heritage property “Saryarka”.',
+      ru: 'Озеро Тенгиз в Коргалжынском заповеднике - одно из самых северных мест гнездования розового фламинго. Заповедник входит в объект Всемирного наследия ЮНЕСКО «Сарыарка».',
+      kk: 'Қорғалжын қорығындағы Теңіз көлі - қызғылт фламингоның ең солтүстік ұя салу орындарының бірі. Қорық ЮНЕСКО-ның «Сарыарқа» Дүниежүзілік мұра нысанына кіреді.',
+      en: 'Lake Tengiz in the Korgalzhyn reserve is one of the northernmost nesting sites of the greater flamingo. The reserve is part of the UNESCO World Heritage property "Saryarka".',
     },
   },
   {
@@ -214,7 +214,7 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     question: {
       ru: 'К какому историческому периоду восходит выражение «Мәңгілік Ел»?',
       kk: '«Мәңгілік Ел» тіркесі қай тарихи кезеңге барып тіреледі?',
-      en: 'To which historical period does the phrase “Mangilik El” go back?',
+      en: 'To which historical period does the phrase "Mangilik El" go back?',
     },
     options: {
       ru: [
@@ -238,9 +238,9 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     answer_index: 1,
     explanation: {
-      ru: 'Выражение связывают с орхонскими руническими памятниками VIII века в честь Күлтегіна и Білге кагана — древнейшими текстами на тюркском языке.',
-      kk: 'Тіркесті VIII ғасырдағы Күлтегін мен Білге қаған құрметіне қойылған Орхон руна ескерткіштерімен — түркі тіліндегі ең көне мәтіндермен байланыстырады.',
-      en: 'The phrase is connected with the eighth-century Orkhon runic monuments to Kultegin and Bilge Khagan — the oldest texts in a Turkic language.',
+      ru: 'Выражение связывают с орхонскими руническими памятниками VIII века в честь Күлтегіна и Білге кагана - древнейшими текстами на тюркском языке.',
+      kk: 'Тіркесті VIII ғасырдағы Күлтегін мен Білге қаған құрметіне қойылған Орхон руна ескерткіштерімен - түркі тіліндегі ең көне мәтіндермен байланыстырады.',
+      en: 'The phrase is connected with the eighth-century Orkhon runic monuments to Kultegin and Bilge Khagan - the oldest texts in a Turkic language.',
     },
   },
   {
@@ -273,8 +273,8 @@ export const QUEST_STEPS: readonly QuestStep[] = [
     },
     answer_index: 1,
     explanation: {
-      ru: 'Сығанақ — средневековый город на нижней Сырдарье, столица Ак-Орды, а затем один из политических центров Казахского ханства.',
-      kk: 'Сығанақ — төменгі Сырдариядағы ортағасырлық қала, Ақ Орданың астанасы, кейін Қазақ хандығының саяси орталықтарының бірі.',
+      ru: 'Сығанақ - средневековый город на нижней Сырдарье, столица Ак-Орды, а затем один из политических центров Казахского ханства.',
+      kk: 'Сығанақ - төменгі Сырдариядағы ортағасырлық қала, Ақ Орданың астанасы, кейін Қазақ хандығының саяси орталықтарының бірі.',
       en: 'Syganak was a medieval city on the lower Syr Darya, capital of the Aq Orda and later one of the political centres of the Kazakh Khanate.',
     },
   },

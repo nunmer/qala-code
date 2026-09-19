@@ -19,7 +19,7 @@ export async function generateMetadata({
   const street = findBySlug(STREETS, slug);
   if (!street) return { title: 'Улица не найдена' };
 
-  // Метаданные статические, поэтому берём русский — язык-источник.
+  // Метаданные статические, поэтому берём русский - язык-источник.
   return {
     title: getStreetTitle(street, 'ru'),
     description: street.text.description,

@@ -14,7 +14,7 @@ export default function HomePage() {
   const stats = useMemo(() => buildStatistics(dataset), [dataset]);
 
   return (
-    <main>
+    <main className="flex-1">
       <section className="border-b border-steppe-800 bg-gradient-to-b from-steppe-900 to-steppe-950">
         <div className="mx-auto max-w-5xl px-4 py-20 text-center sm:py-28">
           <h1 className="text-5xl font-bold tracking-tight sm:text-7xl">
@@ -38,7 +38,7 @@ export default function HomePage() {
               href="/ai"
               className="rounded-xl border border-steppe-700 px-6 py-3 font-semibold text-steppe-100 transition hover:border-steppe-600 hover:bg-steppe-800"
             >
-              🤖 {t('nav.ai')}
+              {t('nav.ai')}
             </Link>
             <Link
               href="/meanings"

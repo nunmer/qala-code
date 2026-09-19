@@ -20,6 +20,13 @@
 
 :root {
   color-scheme: dark;
+
+  /*
+   * Высота шапки: полоса 3.5rem плюс нижняя граница 1px.
+   * На неё опирается полноэкранная раскладка карты, поэтому значение
+   * задано один раз здесь, а не переписано в вёрстке.
+   */
+  --header-h: calc(3.5rem + 1px);
 }
 
 html,
@@ -30,7 +37,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Leaflet рисует тайлы и попапы вне Tailwind-слоёв — правим точечно. */
+/* Leaflet рисует тайлы и попапы вне Tailwind-слоёв - правим точечно. */
 .leaflet-container {
   background: var(--color-steppe-900);
   font-family: var(--font-sans);

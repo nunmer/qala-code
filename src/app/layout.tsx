@@ -6,11 +6,11 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'QALA CODE — интерактивная карта истории улиц Астаны',
-    template: '%s — QALA CODE',
+    default: 'QALA CODE - интерактивная карта истории улиц Астаны',
+    template: '%s - QALA CODE',
   },
   description:
-    'Образовательный проект: карта Астаны, за каждым названием улицы — человек, событие, место или культурное понятие. Собственная база урбанонимов и AI-гид по ней.',
+    'Образовательный проект: карта Астаны, за каждым названием улицы - человек, событие, место или культурное понятие. Собственная база урбанонимов и AI-гид по ней.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // заменяет его на выбранный пользователем язык.
   return (
     <html lang={DEFAULT_LANG}>
-      <body className="min-h-screen bg-steppe-950 text-steppe-100">
+      <body className="flex min-h-dvh flex-col bg-steppe-950 text-steppe-100">
         <LanguageProvider>
           <SiteHeader />
           {children}

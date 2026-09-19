@@ -22,7 +22,7 @@ import type { Street } from '@/lib/types';
 const MapView = dynamic(() => import('@/components/MapView'), {
   ssr: false,
   loading: () => (
-    <div className="flex h-full items-center justify-center text-xs text-steppe-400">…</div>
+    <div className="flex h-full items-center justify-center text-xs text-steppe-400">...</div>
   ),
 });
 
@@ -51,7 +51,7 @@ export function StreetDetail({ street: initial }: { street: Street }) {
   ).slice(0, 6);
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:py-10">
       <Link
         href="/map"
         className="no-print text-sm text-steppe-400 transition hover:text-steppe-100"

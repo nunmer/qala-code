@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, CloseIcon } from '@/components/Icons';
 import Link from 'next/link';
 import { useState } from 'react';
 import { CategoryBadge } from '@/components/CategoryBadge';
@@ -8,7 +9,7 @@ import { useTranslation } from '@/i18n/LanguageProvider';
 import { markQuestStepDone } from '@/lib/storage';
 import type { QuestStep, Street } from '@/lib/types';
 
-/** Одна точка QR-квеста: справка, вопрос, проверка ответа, переход дальше (§18–19). */
+/** Одна точка QR-квеста: справка, вопрос, проверка ответа, переход дальше (§18-19). */
 export function QuestStepView({
   step,
   street,
@@ -33,7 +34,7 @@ export function QuestStepView({
   }
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-10">
+    <main className="mx-auto w-full max-w-2xl flex-1 px-4 py-6 sm:py-10">
       <div className="flex items-center justify-between text-xs text-steppe-400">
         <Link href="/quest" className="transition hover:text-steppe-100">
           {t('quest.allPoints')}
@@ -103,9 +104,11 @@ export function QuestStepView({
                   }`}
                 >
                   {option}
-                  {answered && isAnswer && <span className="ml-2 text-emerald-400">✓</span>}
+                  {answered && isAnswer && (
+                    <CheckIcon className="ml-2 inline text-emerald-400" />
+                  )}
                   {answered && isChosen && !isAnswer && (
-                    <span className="ml-2 text-red-400">✕</span>
+                    <CloseIcon className="ml-2 inline text-red-400" />
                   )}
                 </button>
               </li>

@@ -4,7 +4,7 @@ import { normalizeForSearch } from './normalize';
 
 /**
  * Поиск и фильтрация улиц (§8, §9 README).
- * Все функции чистые и возвращают новые массивы — исходный датасет не мутируется.
+ * Все функции чистые и возвращают новые массивы - исходный датасет не мутируется.
  */
 
 /** Все нормализованные варианты написания названия улицы. */
@@ -22,7 +22,7 @@ function searchKeys(street: Street): readonly string[] {
 
 /**
  * Оценка соответствия улицы запросу.
- * 0 — не подходит; больше — лучше. Точное совпадение всегда впереди префиксного.
+ * 0 - не подходит; больше - лучше. Точное совпадение всегда впереди префиксного.
  */
 export function scoreMatch(street: Street, query: string): number {
   const normalized = normalizeForSearch(query);
@@ -35,7 +35,7 @@ export function scoreMatch(street: Street, query: string): number {
   if (keys.some((key) => key.includes(normalized))) return 50;
   if (keys.some((key) => normalized.startsWith(key) && key.length >= 3)) return 40;
 
-  // Последний шанс — совпадение по содержательным полям карточки.
+  // Последний шанс - совпадение по содержательным полям карточки.
   const subcategoryLabels = street.subcategories
     .flatMap((id) => Object.values(SUBCATEGORIES[id] ?? {}))
     .join(' ');

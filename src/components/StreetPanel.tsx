@@ -1,5 +1,6 @@
 'use client';
 
+import { CloseIcon } from '@/components/Icons';
 import Link from 'next/link';
 import { getStreetText, getStreetTitle, hasTranslation } from '@/data/streets/translations';
 import { useTranslation } from '@/i18n/LanguageProvider';
@@ -35,7 +36,7 @@ export function StreetPanel({
           aria-label={t('street.close')}
           className="shrink-0 rounded-lg border border-steppe-700 px-2 py-1 text-xs text-steppe-400 transition hover:border-steppe-600 hover:text-steppe-100"
         >
-          ✕
+          <CloseIcon />
         </button>
       </header>
 

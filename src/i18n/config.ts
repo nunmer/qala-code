@@ -1,4 +1,4 @@
-/** Языки интерфейса. Русский — язык по умолчанию и язык-источник данных. */
+/** Языки интерфейса. Русский - язык по умолчанию и язык-источник данных. */
 export const LANGUAGES = ['ru', 'kk', 'en'] as const;
 
 export type Lang = (typeof LANGUAGES)[number];
@@ -9,6 +9,13 @@ export const LANGUAGE_LABELS: Readonly<Record<Lang, string>> = {
   ru: 'Рус',
   kk: 'Қаз',
   en: 'Eng',
+};
+
+/** Двухбуквенные коды для узких экранов. */
+export const LANGUAGE_CODES: Readonly<Record<Lang, string>> = {
+  ru: 'RU',
+  kk: 'KZ',
+  en: 'EN',
 };
 
 export const LANGUAGE_NAMES: Readonly<Record<Lang, string>> = {

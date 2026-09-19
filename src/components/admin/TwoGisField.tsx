@@ -13,12 +13,12 @@ import {
 const MapPreview = dynamic(() => import('@/components/admin/PointPreview'), {
   ssr: false,
   loading: () => (
-    <div className="flex h-40 items-center justify-center text-xs text-steppe-400">…</div>
+    <div className="flex h-40 items-center justify-center text-xs text-steppe-400">...</div>
   ),
 });
 
 /**
- * Поле ссылки 2ГИС — единственный способ задать расположение улицы.
+ * Поле ссылки 2ГИС - единственный способ задать расположение улицы.
  *
  * Координаты не вводятся руками: они разбираются из ссылки, показываются
  * пользователю и сразу отрисовываются на мини-карте, чтобы ошибку было
@@ -55,7 +55,7 @@ export function TwoGisField({
           value={draft}
           onChange={(event) => setDraft(event.target.value)}
           onBlur={apply}
-          placeholder="https://2gis.kz/astana/geo/…/71.4302,51.1282"
+          placeholder="https://2gis.kz/astana/geo/.../71.4302,51.1282"
           className="w-full rounded-lg border border-steppe-700 bg-steppe-950 px-3 py-2 text-sm text-steppe-100 placeholder:text-steppe-600 focus:border-gold-500 focus:outline-none"
         />
       </label>

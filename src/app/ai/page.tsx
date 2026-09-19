@@ -20,7 +20,7 @@ interface Exchange {
   readonly error?: string;
 }
 
-/** AI-гид (§11–14, §16 README). */
+/** AI-гид (§11-14, §16 README). */
 export default function AiPage() {
   const { t, lang } = useTranslation();
   const dataset = useDataset();
@@ -57,7 +57,7 @@ export default function AiPage() {
         },
       ]);
     } catch (error) {
-      // Вызов модели не удался — отдаём то, что нашёл retrieval, и честно
+      // Вызов модели не удался - отдаём то, что нашёл retrieval, и честно
       // показываем причину, а не подставляем выдуманный ответ.
       const fallback = await ask(streets, trimmed, null, lang);
       counter.current += 1;
@@ -78,7 +78,7 @@ export default function AiPage() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
+    <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-6 sm:py-10">
       <header className="mb-6">
         <h1 className="text-2xl font-bold text-steppe-100">{t('ai.title')}</h1>
         <p className="mt-2 text-sm leading-relaxed text-steppe-400">{t('ai.intro')}</p>
@@ -103,14 +103,14 @@ export default function AiPage() {
             onChange={(event) => setQuestion(event.target.value)}
             placeholder={t('ai.placeholder')}
             disabled={pending}
-            className="flex-1 rounded-lg border border-steppe-700 bg-steppe-900 px-4 py-3 text-sm text-steppe-100 placeholder:text-steppe-600 focus:border-gold-500 focus:outline-none disabled:opacity-60"
+            className="min-w-0 flex-1 rounded-lg border border-steppe-700 bg-steppe-900 px-3 py-3 text-base text-steppe-100 placeholder:text-steppe-600 focus:border-gold-500 focus:outline-none disabled:opacity-60 sm:px-4 sm:text-sm"
           />
           <button
             type="submit"
             disabled={pending || !question.trim()}
-            className="rounded-lg bg-gold-500 px-5 py-3 text-sm font-semibold text-steppe-950 transition hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
+            className="shrink-0 rounded-lg bg-gold-500 px-4 py-3 text-sm font-semibold text-steppe-950 transition hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40 sm:px-5"
           >
-            {pending ? '…' : t('ai.askButton')}
+            {pending ? '...' : t('ai.askButton')}
           </button>
         </div>
       </form>

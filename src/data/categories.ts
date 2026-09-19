@@ -5,7 +5,6 @@ export const CATEGORIES: readonly Category[] = [
   {
     id: 'personality',
     label: { ru: 'Личности', kk: 'Тұлғалар', en: 'People' },
-    emoji: '🟦',
     color: '#3b82f6',
     description: {
       ru: 'Названия, связанные с конкретными людьми: государственными деятелями, военными, учёными, писателями, деятелями искусства.',
@@ -16,7 +15,6 @@ export const CATEGORIES: readonly Category[] = [
   {
     id: 'geography',
     label: { ru: 'География Казахстана', kk: 'Қазақстан географиясы', en: 'Geography of Kazakhstan' },
-    emoji: '🟩',
     color: '#10b981',
     description: {
       ru: 'Названия географических объектов: городов, регионов, рек, озёр, гор, степей и исторических территорий.',
@@ -27,7 +25,6 @@ export const CATEGORIES: readonly Category[] = [
   {
     id: 'history',
     label: { ru: 'История и государственность', kk: 'Тарих және мемлекеттілік', en: 'History and statehood' },
-    emoji: '🟨',
     color: '#f59e0b',
     description: {
       ru: 'Названия, связанные с историческими событиями, государственностью и ключевыми общественными понятиями.',
@@ -38,7 +35,6 @@ export const CATEGORIES: readonly Category[] = [
   {
     id: 'literature',
     label: { ru: 'Литература и искусство', kk: 'Әдебиет және өнер', en: 'Literature and art' },
-    emoji: '🟪',
     color: '#a855f7',
     description: {
       ru: 'Названия, связанные с литературными произведениями, эпосом, музыкой, театром и культурными явлениями.',
@@ -49,7 +45,6 @@ export const CATEGORIES: readonly Category[] = [
   {
     id: 'nature',
     label: { ru: 'Природа', kk: 'Табиғат', en: 'Nature' },
-    emoji: '🟧',
     color: '#f97316',
     description: {
       ru: 'Названия, связанные с животными, растениями, природными объектами, ландшафтами и природными явлениями.',
@@ -70,7 +65,7 @@ export function getCategory(id: CategoryId): Category {
 }
 
 /**
- * Подсказки категории по ключевым словам вопроса — используется retrieval (§13 README).
+ * Подсказки категории по ключевым словам вопроса - используется retrieval (§13 README).
  * Ключи заданы на трёх языках, чтобы AI-гид понимал вопрос на языке интерфейса.
  */
 export const CATEGORY_KEYWORDS: Readonly<Record<CategoryId, readonly string[]>> = {

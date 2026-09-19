@@ -11,7 +11,7 @@ import { useTranslation } from '@/i18n/LanguageProvider';
 import { withLocation, type LocatedStreet } from '@/lib/location';
 import type { Street } from '@/lib/types';
 
-/** Маркер категории — обычный div, цвет задаётся CSS-переменной. */
+/** Маркер категории - обычный div, цвет задаётся CSS-переменной. */
 function markerIcon(color: string): L.DivIcon {
   return L.divIcon({
     className: 'qala-marker',
@@ -93,7 +93,7 @@ export default function MapView({
   const { lang } = useTranslation();
 
   // Координаты берутся из ссылки 2ГИС; записи без рабочей ссылки
-  // на карте не показываются вовсе — это честнее ложного маркера.
+  // на карте не показываются вовсе - это честнее ложного маркера.
   const located = useMemo(() => withLocation(streets), [streets]);
 
   const markers = useMemo(

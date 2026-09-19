@@ -31,7 +31,7 @@ export function AdminLogin({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <main className="mx-auto max-w-md px-4 py-20">
+    <main className="mx-auto w-full max-w-md flex-1 px-4 py-12 sm:py-20">
       <h1 className="text-2xl font-bold text-steppe-100">{t('admin.login')}</h1>
 
       <p className="mt-4 rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-xs leading-relaxed text-amber-200">

@@ -24,7 +24,7 @@ describe('normalizeForSearch (§8)', () => {
   });
 
   it('не склеивает разные согласные: это задача alt_names, а не нормализации', () => {
-    // «Сәтбаев» и «Сатпаев» различаются б/п — реальной согласной, а не
+    // «Сәтбаев» и «Сатпаев» различаются б/п - реальной согласной, а не
     // казахской графемой. Такие пары связываются через alt_names записи.
     expect(normalizeForSearch('Сәтбаев')).not.toBe(normalizeForSearch('Сатпаев'));
     expect(searchStreets(STREETS, 'Сәтбаев')[0]?.slug).toBe('satpayev');
@@ -207,7 +207,7 @@ describe('retrieval (§13)', () => {
     expect(slugs).toContain('seyfullin');
     expect(slugs).toContain('auezov');
 
-    // Кобланды батыр — герой эпоса, а не писатель.
+    // Кобланды батыр - герой эпоса, а не писатель.
     expect(slugs.indexOf('koblandy-batyr')).not.toBe(0);
   });
 

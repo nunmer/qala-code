@@ -13,7 +13,7 @@ const STATUSES: readonly RecordStatus[] = ['draft', 'review', 'published'];
 /**
  * Редактор одной записи.
  *
- * Все изменения выражаются как новый объект — исходная запись
+ * Все изменения выражаются как новый объект - исходная запись
  * не мутируется (правило иммутабельности проекта).
  */
 export function StreetEditor({
@@ -55,7 +55,7 @@ export function StreetEditor({
         {t('admin.translationNote')}
       </p>
 
-      {/* Расположение задаётся ссылкой 2ГИС — координат руками нет. */}
+      {/* Расположение задаётся ссылкой 2ГИС - координат руками нет. */}
       <TwoGisField
         value={street.twogis_url}
         onChange={(url) => patch({ twogis_url: url })}
@@ -261,7 +261,7 @@ export function StreetEditor({
   );
 }
 
-/** Разбирает строки вида «Название | https://…» в список источников. */
+/** Разбирает строки вида «Название | https://...» в список источников. */
 function parseSources(raw: string): readonly Source[] {
   return raw
     .split('\n')

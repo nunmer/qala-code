@@ -11,11 +11,11 @@ import { clearOverrides, loadOverrides, saveOverrides } from '@/lib/storage';
 import type { RecordStatus, Street } from '@/lib/types';
 
 /**
- * Редактор данных (§25–26 README).
+ * Редактор данных (§25-26 README).
  *
  * У статического приложения нет сервера, поэтому правки хранятся как рабочая
  * копия в localStorage и выгружаются файлом. Исследователь редактирует записи
- * здесь, экспортирует JSON и коммитит его в датасет — так изменения попадают
+ * здесь, экспортирует JSON и коммитит его в датасет - так изменения попадают
  * в собранную версию сайта.
  */
 export default function AdminPage() {
@@ -29,6 +29,7 @@ export default function AdminPage() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
+  const editorRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setAuthorised(hasSession());
@@ -49,6 +50,34 @@ export default function AdminPage() {
     [streets, activeId],
   );
 
+  /**
+   * Переход к форме редактирования.
+   *
+   * На узком экране форма заменяет собой список и начинается ниже шапки
+   * страницы: без прокрутки выбор записи выглядит так, будто ничего не
+   * произошло. Выравниваем по верху экрана, иначе виден один заголовок.
+   * На широком экране обе колонки рядом, и дёргать страницу незачем.
+   *
+   * Прокрутка живёт в эффекте, а не в обработчике клика: до перерисовки
+   * элемент формы ещё скрыт, и scrollIntoView по нему ничего не делает.
+   * Плавный режим не используется - браузер молча пропускает его
+   * в неактивной вкладке.
+   */
+  useEffect(() => {
+    if (!activeId || !editorRef.current) return;
+    const narrow = window.matchMedia('(max-width: 1023px)').matches;
+    editorRef.current.scrollIntoView({ block: narrow ? 'start' : 'nearest' });
+  }, [activeId]);
+
+  /**
+   * На узком экране список и форма идут одной колонкой, и форма оказывается
+   * ниже всех записей. Без перехода к ней выбор записи выглядит так,
+   * будто ничего не произошло.
+   */
+  function select(id: string) {
+    setActiveId(id);
+  }
+
   /** Единая точка записи: иммутабельно обновляем список и сохраняем копию. */
   function commit(next: readonly Street[]) {
     setStreets(next);
@@ -68,7 +97,7 @@ export default function AdminPage() {
   function addStreet() {
     const created = blankStreet(streets);
     commit([created, ...streets]);
-    setActiveId(created.id);
+    select(created.id);
   }
 
   function deleteStreet(id: string) {
@@ -115,7 +144,7 @@ export default function AdminPage() {
   }
 
   if (!checked) {
-    return <main className="px-4 py-20 text-center text-sm text-steppe-400">…</main>;
+    return <main className="flex-1 px-4 py-20 text-center text-sm text-steppe-400">...</main>;
   }
 
   if (!authorised) {
@@ -125,7 +154,7 @@ export default function AdminPage() {
   const incomplete = streets.filter((street) => dataQualityIssues(street).length > 0);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-10">
+    <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-10">
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-steppe-100">{t('admin.title')}</h1>
@@ -215,7 +244,7 @@ export default function AdminPage() {
       </section>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1.3fr]">
-        <section>
+        <section className={active ? 'hidden lg:block' : 'block'}>
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-steppe-400">
             {t('admin.records')}
           </h2>
@@ -224,7 +253,7 @@ export default function AdminPage() {
               <li key={street.id}>
                 <button
                   type="button"
-                  onClick={() => setActiveId(street.id)}
+                  onClick={() => select(street.id)}
                   className={`flex w-full items-center gap-3 rounded-lg border px-3 py-2 text-left transition ${
                     activeId === street.id
                       ? 'border-gold-500/50 bg-steppe-800'
@@ -244,10 +273,24 @@ export default function AdminPage() {
           </ul>
         </section>
 
-        <section>
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wider text-steppe-400">
-            {t('admin.editing')}
-          </h2>
+        <section
+          ref={editorRef}
+          className={`scroll-mt-16 ${active ? 'block' : 'hidden lg:block'}`}
+        >
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-steppe-400">
+              {t('admin.editing')}
+            </h2>
+            {active && (
+              <button
+                type="button"
+                onClick={() => setActiveId(null)}
+                className="rounded-lg border border-steppe-700 px-3 py-1.5 text-xs text-steppe-300 transition hover:border-steppe-600 hover:text-steppe-100 lg:hidden"
+              >
+                {t('admin.backToList')}
+              </button>
+            )}
+          </div>
           {active ? (
             <StreetEditor
               street={active}
@@ -280,7 +323,7 @@ function StatusPill({ status }: { status: RecordStatus }) {
   );
 }
 
-/** Пустая запись со статусом draft — заполняется исследователем. */
+/** Пустая запись со статусом draft - заполняется исследователем. */
 function blankStreet(existing: readonly Street[]): Street {
   const maxId = existing.reduce((max, street) => {
     const match = /street_(\d+)/.exec(street.id);

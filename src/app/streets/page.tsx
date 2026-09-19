@@ -9,7 +9,7 @@ import { useTranslation } from '@/i18n/LanguageProvider';
 import { useDataset } from '@/lib/dataset';
 import { sortByName } from '@/lib/search';
 
-/** Каталог всех записей базы — навигация без карты. */
+/** Каталог всех записей базы - навигация без карты. */
 export default function StreetsPage() {
   const { t, lang } = useTranslation();
   const streets = useDataset();
@@ -24,7 +24,7 @@ export default function StreetsPage() {
   );
 
   return (
-    <main className="mx-auto max-w-4xl px-4 py-10">
+    <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:py-10">
       <h1 className="text-2xl font-bold text-steppe-100">{t('catalog.title')}</h1>
       <p className="mt-2 text-sm text-steppe-400">
         {streets.length} {t('catalog.subtitle')}

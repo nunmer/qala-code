@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!questStep) return { title: 'Точка маршрута не найдена' };
 
   const street = findBySlug(STREETS, questStep.street_slug);
-  return { title: `QR №${questStep.order} — ${street?.name_ru ?? 'точка маршрута'}` };
+  return { title: `QR №${questStep.order} - ${street?.name_ru ?? 'точка маршрута'}` };
 }
 
 export default async function QuestStepPage({
