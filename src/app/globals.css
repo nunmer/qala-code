@@ -1,0 +1,124 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-steppe-950: #0a0e14;
+  --color-steppe-900: #111722;
+  --color-steppe-850: #161d2b;
+  --color-steppe-800: #1d2635;
+  --color-steppe-700: #2b3648;
+  --color-steppe-600: #3d4a60;
+  --color-steppe-400: #8394ae;
+  --color-steppe-300: #aab8cc;
+  --color-steppe-100: #e4eaf3;
+
+  --color-gold-500: #d4a03c;
+  --color-gold-400: #e5b65a;
+  --color-sky-qala: #4fa3d1;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background-color: var(--color-steppe-950);
+  color: var(--color-steppe-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Leaflet рисует тайлы и попапы вне Tailwind-слоёв — правим точечно. */
+.leaflet-container {
+  background: var(--color-steppe-900);
+  font-family: var(--font-sans);
+  outline: none;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: var(--color-steppe-850);
+  color: var(--color-steppe-100);
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.45);
+}
+
+.leaflet-popup-content {
+  margin: 0.875rem 1rem;
+  line-height: 1.45;
+}
+
+.leaflet-popup-close-button {
+  color: var(--color-steppe-400) !important;
+  padding: 0.5rem 0.5rem 0 0 !important;
+}
+
+.leaflet-bar a {
+  background: var(--color-steppe-850);
+  color: var(--color-steppe-100);
+  border-color: var(--color-steppe-700);
+}
+
+.leaflet-bar a:hover {
+  background: var(--color-steppe-800);
+  color: #fff;
+}
+
+.leaflet-control-attribution {
+  background: rgb(17 23 34 / 0.85) !important;
+  color: var(--color-steppe-400) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--color-steppe-300) !important;
+}
+
+/* Маркер категории: круг с цветной заливкой, задаётся через --marker-color. */
+.qala-marker {
+  background: transparent;
+  border: none;
+}
+
+.qala-marker span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--marker-color, #4fa3d1);
+  border: 2px solid rgb(255 255 255 / 0.85);
+  box-shadow: 0 0 0 2px rgb(0 0 0 / 0.35), 0 4px 10px rgb(0 0 0 / 0.4);
+  transition: transform 140ms ease;
+}
+
+.qala-marker:hover span {
+  transform: scale(1.25);
+}
+
+/* Тонкий скроллбар в боковых панелях. */
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-steppe-600) transparent;
+}
+
+.thin-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.thin-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-steppe-600);
+  border-radius: 9999px;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
